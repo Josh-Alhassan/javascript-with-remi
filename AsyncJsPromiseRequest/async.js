@@ -64,3 +64,40 @@ makeDogPromise()
   .catch(function () {
     console.log("No Dog for me");
   });
+
+// >>>>>>>> Resolving/Rejecting W/ Values <<<<<<<<
+
+function fakeRequest(url) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const pages = {
+        "/users": [
+          { id: 1, username: "Joshua" },
+          { id: 5, username: "Alhassan" },
+        ],
+        "/about": "This is the about page",
+      };
+
+      const data = pages[url];
+      console.log(data);
+
+      if (data) {
+        resolve({ status: 200, data: data });
+      } else {
+        reject({ status: 404 });
+      }
+    }, 2000);
+  });
+}
+
+// Calling the fakeRequest Function
+fakeRequest("/users")
+  .then((res) => {
+    console.log("Status Code: ", res.status);
+    console.log("Data ", res.data);
+    console.log("Request Worked!");
+  })
+  .catch((res) => {
+    console.log(res.status);
+    console.log("Request Failed");
+  });
