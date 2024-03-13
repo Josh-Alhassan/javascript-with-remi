@@ -17,3 +17,25 @@ setTimeout(() => {
 }, 3000);
 
 console.log("I happened 2nd");
+
+// >>>>>>>> Introduction to Promises <<<<<<<<<
+const willGetYouADog = new Promise(function (resolve, reject) {
+  const random = Math.random();
+  console.log(random);
+
+  // Conditional
+  if (random < 0.5) {
+    resolve();
+  } else {
+    reject();
+  }
+});
+
+console.log(willGetYouADog);
+willGetYouADog.then(function () {
+  console.log("AY, we have a Dog");
+});
+
+willGetYouADog.catch(() => {
+  console.log("NO DOG!");
+});
