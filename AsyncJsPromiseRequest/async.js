@@ -39,3 +39,28 @@ willGetYouADog.then(function () {
 willGetYouADog.catch(() => {
   console.log("NO DOG!");
 });
+
+// >>>>>> Returning Promise from functions
+function makeDogPromise() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      const random = Math.random();
+      console.log(random);
+
+      // Conditional
+      if (random < 0.5) {
+        resolve();
+      } else {
+        reject();
+      }
+    }, 5000);
+  });
+}
+
+makeDogPromise()
+  .then(function () {
+    console.log("I have a new Dog");
+  })
+  .catch(function () {
+    console.log("No Dog for me");
+  });
