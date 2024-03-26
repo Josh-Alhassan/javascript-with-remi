@@ -179,3 +179,35 @@ fakeRequests("/users")
 // 	.catch((err) => {
 // 		console.log('OH NO!', err);
 // 	});
+
+const table = {
+  nameOfTable: "Office Desk",
+  numOfLegs: 2,
+  color: "brown",
+  width: 1000 + "cm",
+  height: 3000 + "cm",
+
+  makeSentence: function () {
+    return `${this.nameOfTable} has a total number of ${this.numOfLegs} legs with a color of ${this.color}`;
+  },
+};
+
+// let nameOfTable = "Resturant Desk";
+// let numOfLegs = 4;
+// let color = "orange";
+
+// let makeSentence =
+//   nameOfTable +
+//   "has a total number of " +
+//   numOfLegs +
+//   "legs " +
+//   "with a color of " +
+//   color;
+
+// console.log(makeSentence);
+
+console.log(table.height);
+console.log(table.width);
+console.log(table.makeSentence());
+
+document.getElementById("title").value;
