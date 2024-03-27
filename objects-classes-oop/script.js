@@ -88,3 +88,21 @@ Object.defineProperties(book2, {
 console.log(book2);
 book.year = 2019;
 console.log(book.edition);
+
+// --- Reading Property Attributes ---
+// Object.getOwnPropertyDescriptor()
+
+let descriptor = Object.getOwnPropertyDescriptor(book2, "year_");
+console.log(descriptor);
+console.log(descriptor.value);
+console.log(descriptor.configurable);
+console.log(typeof descriptor.get);
+
+let descriptor2 = Object.getOwnPropertyDescriptor(book2, "year");
+console.log(descriptor2);
+console.log(descriptor2.value);
+console.log(descriptor2.configurable);
+console.log(typeof descriptor2.get);
+
+// Object.getOwnPropertyDescriptors() - Static Method
+console.log(Object.getOwnPropertyDescriptors(book2));
