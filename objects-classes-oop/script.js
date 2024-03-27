@@ -106,3 +106,21 @@ console.log(typeof descriptor2.get);
 
 // Object.getOwnPropertyDescriptors() - Static Method
 console.log(Object.getOwnPropertyDescriptors(book2));
+
+// --- Merging Objects ---
+let dest, src, result;
+
+dest = {};
+src = { id: "src" };
+result = Object.assign(dest, src);
+console.log(result);
+
+// Object type checking
+console.log(dest === result);
+console.log(dest !== src);
+console.log(result);
+console.log(dest);
+
+dest = {};
+result = Object.assign(dest, { a: "foo" }, { b: "bar" });
+console.log(result);
