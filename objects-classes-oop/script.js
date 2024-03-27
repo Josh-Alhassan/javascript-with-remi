@@ -1,3 +1,5 @@
+// "use strict"
+
 // Object Instance
 let person = new Object();
 person.name = "Joshua";
@@ -23,3 +25,15 @@ let person2 = {
 
 // Logged Values
 console.log(person2);
+
+// Type of Properties -- Data Properties
+Object.defineProperty(person2, "name", {
+  writable: false,
+  configurable: false,
+  value: "Alhassan",
+});
+
+console.log(person2.name);
+person2.name = "Abel";
+delete person2.name;
+console.log(person2.name);
