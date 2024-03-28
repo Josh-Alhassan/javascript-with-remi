@@ -124,3 +124,29 @@ console.log(dest);
 dest = {};
 result = Object.assign(dest, { a: "foo" }, { b: "bar" });
 console.log(result);
+
+// --- Object Identity and Equality ---
+console.log(true === 1);
+console.log({} == {});
+console.log("2" === 2);
+
+// These have different representations
+console.log(+0 === -0);
+console.log(+0 === 0);
+console.log(-0 === 0);
+
+// NaN equivalence
+console.log(NaN === NaN);
+console.log(isNaN(NaN));
+
+// ECMAScript 6 Remedy Solution
+console.log(Object.is(true, 1));
+console.log(Object.is({}, {}));
+console.log(Object.is("2", 2));
+
+console.log(Object.is(+0, -0));
+console.log(Object.is(+0, 0));
+console.log(Object.is(-0, 0));
+
+// Correct NaN Equivalence
+console.log(Object.is(NaN, NaN));
