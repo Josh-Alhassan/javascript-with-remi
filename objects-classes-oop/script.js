@@ -150,3 +150,25 @@ console.log(Object.is(-0, 0));
 
 // Correct NaN Equivalence
 console.log(Object.is(NaN, NaN));
+
+// --- Enhanced Object Syntax ---
+// ==> Property Value Shorthand
+let name = "Joshua";
+let personObj = {
+  name,
+};
+console.log(personObj);
+console.log(personObj.name);
+
+// Minifiers examples
+function makePerson(name, age) {
+  return {
+    name,
+    age,
+  };
+}
+
+let personObj2 = makePerson("Joshua", 26);
+personObj2;
+console.log(personObj2.name);
+console.log(personObj2.age);
