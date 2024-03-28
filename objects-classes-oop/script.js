@@ -172,3 +172,30 @@ let personObj2 = makePerson("Joshua", 26);
 personObj2;
 console.log(personObj2.name);
 console.log(personObj2.age);
+
+// ==> Computed Property Keys
+const nameKey = "name";
+const ageKey = "age";
+const jobKey = "job";
+let uniqueToken = 0;
+
+let newPersonObj = {
+  [nameKey]: "Abel",
+  [ageKey]: 26,
+  [jobKey]: "Software Engineer",
+};
+
+console.log(newPersonObj);
+
+// computed property complex expressions
+function getUniqueKey(key) {
+  return `${key}_${uniqueToken++}`;
+}
+
+let newPersonObjFunc = {
+  [getUniqueKey(nameKey)]: "Joshua",
+  [getUniqueKey(ageKey)]: 26,
+  [getUniqueKey(jobKey)]: "Frontend Engineer",
+};
+
+console.log(newPersonObjFunc);
