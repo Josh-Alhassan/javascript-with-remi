@@ -199,3 +199,36 @@ let newPersonObjFunc = {
 };
 
 console.log(newPersonObjFunc);
+
+// --------------
+// Concise Method Syntax
+// --------------
+
+let personMethod1 = {
+  sayName: function (name) {
+    return `My name is ${name}`;
+  },
+};
+
+const methodResult = personMethod1.sayName("Joshua");
+console.log(methodResult);
+
+const personMethod2 = {
+  sayName(name) {
+    return `My second method name is ${name}`;
+  },
+};
+
+console.log(personMethod2.sayName("Alhassan"));
+
+// shorthand method and computed property keys ae mutually compatible.
+const methodKey = "SayNames";
+
+let personShorthandObj = {
+  [methodKey](firstname, surname) {
+    return `My first name is ${firstname}, and my surname is ${surname}`;
+  },
+};
+
+console.log(personShorthandObj.SayNames("Joshua", "Alhassan"));
+personShorthandObj;
