@@ -296,7 +296,7 @@ console.log(personDefaultValue); // Job property not added to Object
 // Object Creation
 // -------------
 
-// Create Object with specific Interfaces
+// Factory Function - Create Object with specific Interfaces
 function createPerson(name, age, job) {
   let obj = new Object();
   obj.name = name;
@@ -314,3 +314,31 @@ let createPerson2 = createPerson("Greg", 27, "Doctor");
 
 console.log(createPerson1);
 console.log(createPerson2);
+
+// ________
+// Function Constructor Pattern
+
+function Person(name, age, job) {
+  this.name = name;
+  this.age = age;
+  this.job = job;
+  this.mentionName = function () {
+    return this.name;
+  };
+}
+
+let personConstructor1 = new Person("Nicholas", 29, "software Engineer");
+let personConstructor2 = new Person("Greg", 27, "Doctor");
+
+console.log(personConstructor1);
+console.log(personConstructor1.mentionName());
+
+console.log(personConstructor2);
+console.log(personConstructor2.mentionName());
+
+// Test - Each of these objects as a `constructor` property that points back to the `Person`, as follows:
+let constructorTest1 = personConstructor1.constructor == Person;
+constructorTest1;
+// console.log(personConstructor1.constructor())
+let constructorTest2 = personConstructor2.constructor == Person;
+console.log(constructorTest2);
