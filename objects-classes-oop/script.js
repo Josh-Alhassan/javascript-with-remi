@@ -342,3 +342,39 @@ constructorTest1;
 // console.log(personConstructor1.constructor())
 let constructorTest2 = personConstructor2.constructor == Person;
 console.log(constructorTest2);
+
+// -- Tests with `instanceof` which is considered safer
+console.log(personConstructor1 instanceof Object);
+console.log(personConstructor1 instanceof Person);
+console.log(personConstructor2 instanceof Object);
+console.log(personConstructor2 instanceof Person);
+
+// Constructor functions as Functions Expression
+let PersonExpression = function (name, age, job) {
+  this.name = name;
+  this.age = age;
+  this.job = job;
+  this.sayName = function () {
+    return this.name;
+  };
+};
+
+// Constructor function parenthesis optional
+function PersonOptional() {
+  this.name = "Jake";
+  this.mentionName = function () {
+    return this.name;
+  };
+}
+
+let personOption1 = new PersonOptional();
+let personOption2 = new PersonOptional();
+
+console.log(personOption1.mentionName());
+console.log(personOption2.mentionName());
+
+// Tests
+console.log(personOption1 instanceof Object);
+console.log(personOption1 instanceof PersonOptional);
+console.log(personOption2 instanceof Object);
+console.log(personOption2 instanceof PersonOptional);
