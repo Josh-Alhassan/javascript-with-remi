@@ -291,3 +291,26 @@ let { nameDefaultVal, ageDefaultVal } = personDefaultValue;
 console.log(nameDefaultVal, (job = "Software Engineer"));
 console.log(job);
 console.log(personDefaultValue); // Job property not added to Object
+
+// -------------
+// Object Creation
+// -------------
+
+// Create Object with specific Interfaces
+function createPerson(name, age, job) {
+  let obj = new Object();
+  obj.name = name;
+  obj.age = age;
+  personObj.job = job;
+  obj.sayName = function () {
+    return this.name;
+  };
+
+  return obj;
+}
+
+let createPerson1 = createPerson("Nicholas", 29, "Software Engineer");
+let createPerson2 = createPerson("Greg", 27, "Doctor");
+
+console.log(createPerson1);
+console.log(createPerson2);
