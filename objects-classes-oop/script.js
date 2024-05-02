@@ -256,3 +256,38 @@ console.log(destPersonAge);
 // Using Destructure
 let { name: personName, age: personAge } = personDestructure;
 console.log(personName, personAge);
+
+// Reuse property as Local Variable
+let personLocalVariable = {
+  nameLocal: "Matt",
+  age: 27,
+};
+
+let { nameLocal, age } = personLocalVariable;
+console.log(personLocalVariable);
+
+console.log(nameLocal);
+console.log(age);
+
+// Referencing Properties that do not exist
+let personReference = {
+  nameRef: "Matt",
+  ageRef: 27,
+};
+
+// _______
+let { nameRef, job } = personReference;
+console.log(nameRef);
+console.log(job);
+
+// Defining Default Values
+let personDefaultValue = {
+  nameDefaultVal: "Joshua",
+  ageDefaultVal: 27,
+};
+
+// ________
+let { nameDefaultVal, ageDefaultVal } = personDefaultValue;
+console.log(nameDefaultVal, (job = "Software Engineer"));
+console.log(job);
+console.log(personDefaultValue); // Job property not added to Object
