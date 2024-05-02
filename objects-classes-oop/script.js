@@ -225,10 +225,34 @@ console.log(personMethod2.sayName("Alhassan"));
 const methodKey = "SayNames";
 
 let personShorthandObj = {
-  [methodKey](firstname, surname) {
-    return `My first name is ${firstname}, and my surname is ${surname}`;
+  [methodKey](firstName, surname) {
+    return `My first name is ${firstName}, and my surname is ${surname}`;
   },
 };
 
 console.log(personShorthandObj.SayNames("Joshua", "Alhassan"));
 personShorthandObj;
+
+console.log(
+  `She has ended up seperating my mouse into two halves ${personShorthandObj.SayNames()}`
+);
+
+// ------------------------
+// Object Destructuring
+// ------------------------
+
+let personDestructure = {
+  name: "Matt",
+  age: 27,
+};
+
+// Without Destructuring
+let destPersonName = personDestructure.name,
+  destPersonAge = personDestructure.age;
+
+console.log(destPersonName);
+console.log(destPersonAge);
+
+// Using Destructure
+let { name: personName, age: personAge } = personDestructure;
+console.log(personName, personAge);
