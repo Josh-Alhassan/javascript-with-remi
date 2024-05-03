@@ -433,3 +433,28 @@ let solutionPerson2 = new SolutionProblem("Greg", 27, "Doctor");
 
 solutionPerson1.sayName();
 solutionPerson2.sayName();
+
+// ------------
+// The Prototype Pattern
+// ------------
+
+// The benefit of using the `prototype` is that all of its `properties` and `methods` are shared among objects instances
+
+function PrototypePerson() {}
+
+PrototypePerson.prototype.name = "Joshua";
+PrototypePerson.prototype.age = 27;
+PrototypePerson.prototype.job = "Software Engineer";
+PrototypePerson.prototype.sayName = function () {
+  console.log(this.name);
+};
+
+let personPrototype1 = new PrototypePerson();
+personPrototype1;
+personPrototype1.sayName();
+
+let personPrototype2 = new PrototypePerson();
+personPrototype2.sayName();
+
+// Test - is the sayName method the same at both instance?
+console.log(personPrototype1.sayName === personPrototype2.sayName);
