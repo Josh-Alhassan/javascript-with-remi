@@ -378,3 +378,19 @@ console.log(personOption1 instanceof Object);
 console.log(personOption1 instanceof PersonOptional);
 console.log(personOption2 instanceof Object);
 console.log(personOption2 instanceof PersonOptional);
+
+// -----------
+// Constructors as Functions
+// -----------
+
+let constFuncPerson = new Person("Nicholas", 29, "Software Engineer");
+console.log(constFuncPerson.mentionName());
+
+// Call as a Function
+Person("Greg", 27, "Doctor");
+// window.mentionName()
+
+// Call in the scope of a new Object
+let newObj = new Object();
+Person.call(newObj, "Kristen", 25, "Nurse");
+console.log(newObj.mentionName());
