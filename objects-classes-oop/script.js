@@ -394,3 +394,42 @@ Person("Greg", 27, "Doctor");
 let newObj = new Object();
 Person.call(newObj, "Kristen", 25, "Nurse");
 console.log(newObj.mentionName());
+
+// -----------
+// Problems with Constructors
+// -----------
+
+// Functions are OBJECTS - Every time a function is defined, it's actually an object being instantiated
+function ProblemWithConstructPerson(name, age, job) {
+  this.name = name;
+  this.age = age;
+  this.job = job;
+
+  this.sayName = new Function(console.log(this.name)); // Logical Equivalent
+  // Same as
+  /*
+    this.sayName = function() {
+      console.log(this.name)
+    }
+   */
+}
+
+console.log(personConstructor1.mentionName === personConstructor2.mentionName);
+
+// Solution - Better way to solve the constructor problem
+function SolutionProblem(name, age, job) {
+  this.name = name;
+  this.age = age;
+  this.job = job;
+  this.sayName = sayName;
+}
+
+function sayName() {
+  console.log(this.name);
+}
+
+let solutionPerson1 = new SolutionProblem("Nicholas", 29, "Software Engineer");
+let solutionPerson2 = new SolutionProblem("Greg", 27, "Doctor");
+
+solutionPerson1.sayName();
+solutionPerson2.sayName();
