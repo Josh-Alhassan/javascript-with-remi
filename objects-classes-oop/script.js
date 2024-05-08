@@ -30,7 +30,7 @@ console.log(person2);
 Object.defineProperty(person2, "name", {
   writable: false,
   configurable: false,
-  value: "Alhassan",
+  value: "Abel",
 });
 
 console.log(person2.name);
@@ -219,7 +219,7 @@ const personMethod2 = {
   },
 };
 
-console.log(personMethod2.sayName("Alhassan"));
+console.log(personMethod2.sayName("Abel"));
 
 // shorthand method and computed property keys ae mutually compatible.
 const methodKey = "SayNames";
@@ -230,11 +230,11 @@ let personShorthandObj = {
   },
 };
 
-console.log(personShorthandObj.SayNames("Joshua", "Alhassan"));
+console.log(personShorthandObj.SayNames("Joshua", "Abel"));
 personShorthandObj;
 
 console.log(
-  `She has ended up seperating my mouse into two halves ${personShorthandObj.SayNames()}`
+  `She has ended up separating my mouse into two halves ${personShorthandObj.SayNames()}`
 );
 
 // ------------------------
