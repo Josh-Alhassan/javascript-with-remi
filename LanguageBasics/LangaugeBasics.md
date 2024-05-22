@@ -69,3 +69,38 @@ function doSomething() {
 ```
 
 `strict mode` changes many parts of how JavaScript is executed.
+
+### Statements
+
+Statements in ECMAScripts are terminated by a semicolon, though omitting th semicolon makes the parser determines where the end of the statement occurs, as in the following examples:
+
+```
+let sum = a + b // valid even without a semicolon - not recommended
+
+let diff = a - b; // valid - prefer
+```
+
+Even though a semi-colon is not required at the end of statements, you should always include one:
+
+- Helps prevents error of omission.
+- Allow developers to compress ECMAScript code by removing extra-white space: Such compression causes syntax errors when lines do not end in semi-colon.
+- Improves performance in certain situations: Because parses try to correct syntax errors by inserting semi-colons where they appear to belong.
+
+Multiple statements can be combined into a code block by using C-style syntax beginning with left curly brace `({)` and ending a right curly brace `(})`:
+
+```
+if (test) {
+    test = false;
+    console.log(false)
+}
+```
+
+Control Statements , such as "if" require code blocks only when executing multiple statements. However, it is considered a best practice to _always use code blocks_ with control statements, even if there's only one statement to be executed, as in the following examples:
+
+```
+// valid, but error-prone and should be avoided
+if (test) console.log(test)
+
+// Preffered
+if (test) { console.log(test); }
+```
