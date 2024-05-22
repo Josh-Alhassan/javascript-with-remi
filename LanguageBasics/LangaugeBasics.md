@@ -14,3 +14,5 @@ At the core of every language is a description of how it should work at the most
 ECMAScript's syntax borrows heavily from C and other C like languages such as Java, and Perl.
 
 ### Case Sensitivity
+
+Everything in JavaScript is _case-sensitive_; variables, function names, and operators are all case-sensitive, meaning that a variable named _"test"_ is different from a variable name _Test_.
