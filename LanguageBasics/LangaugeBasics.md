@@ -136,3 +136,7 @@ let | private
 await
 
 **Note:** _It's best to avoid using both keywords and reserved words as both identifiers and property names to ensure compatibility with past and future ECMAScript editions._
+
+### Variables
+
+ECMAScript variables are loosely typed, meaning that a variable can hold any type of data. Every _variable_ is simply a _named placeholder_ for a value. There are three keywords that can be used to declare a variable: `var`, which is available in all ECMAScript versions, and `let`, and `const` which were introduced in ECMAScript 6.
