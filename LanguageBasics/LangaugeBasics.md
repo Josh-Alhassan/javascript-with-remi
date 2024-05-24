@@ -104,3 +104,35 @@ if (test) console.log(test)
 // Preffered
 if (test) { console.log(test); }
 ```
+
+### Keywords and Reserved Words
+
+By rule, keywords are reserved and cannot be used as identifiers or property names.
+
+The complete list of keywords for ECMAScript -262 sixth edition are as follows
+
+break | do | in | typeof
+case | else | instanceof | var
+catch | export | new | void
+class | extends | return | while
+const | finally | super | with
+continue| for | switch | yield
+debugger| function| this |  
+default | if | throw |  
+delete | import | try |
+
+**Always Reserved**
+
+enum
+
+**Reserved with Strict Mode**
+
+implements | packages | Public
+Interface | protected | static
+let | private
+
+**Reserved in Module Code**
+
+await
+
+**Note:** _It's best to avoid using both keywords and reserved words as both identifiers and property names to ensure compatibility with past and future ECMAScript editions._
