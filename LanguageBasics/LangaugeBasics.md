@@ -140,3 +140,32 @@ await
 ### Variables
 
 ECMAScript variables are loosely typed, meaning that a variable can hold any type of data. Every _variable_ is simply a _named placeholder_ for a value. There are three keywords that can be used to declare a variable: `var`, which is available in all ECMAScript versions, and `let`, and `const` which were introduced in ECMAScript 6.
+
+### The Var Keyword
+
+To define a variable, use the `var` operator, followed by the variable name, like this
+
+```
+var message;
+```
+
+The code above defines a variable named `message` that can be used to hold any value.
+
+**Note:** \_Without initialization, a variable defined holds the special value `undefined`.
+
+ECMAScript implements variable initialization, so it's possible to define a variable and set its value at the same time, as in the example:
+
+```
+var message = "hi";
+```
+
+Above, `message` is defined to hld a string value of `"hi"`. _Doing this initialization doesn't make the variable as being a **string** type:_ It's simply the assignment of a value to the variable.
+
+It is possible to not only change the value stored in the variable but also change the type pf value, such as this.
+
+```
+var message = 'hi';
+* message = 100; // legal, but not recommended. *
+```
+
+In this example, the variable `message` is first defined as having the string value "hi" and then over-written with the numeric value 100. Although it's not recommended to switch the data type that a variable contains, it is completely valid in ECMAScript.
