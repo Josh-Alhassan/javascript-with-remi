@@ -210,3 +210,41 @@ var message = "hi",
 Because ECMAScript is loosely typed, variable initializations using different data types maybe combined into a single statement.
 
 **NOTE:** _When you're running in Strict Mode, you cannot define variables named **eval** or **arguments**, doing so results to **syntax error** ._
+
+### Var Declaration Hoisting
+
+When using `var`, the following is possible, _because variable declared using that keyword are hoisted to the top of the function scope._
+
+```
+function foo() {
+    console.log(age);
+    var age = 26;
+}
+
+foo() // undefined
+```
+
+The above code doesn't throw an error because the ECMAScript _runtime_ technically treats it like this:
+
+```
+function foo() {
+    var age;
+    console.log(age);
+    age = 26;
+}
+
+foo() // undefined
+```
+
+**Hoisting** is where the interpreter pulls all variable declarations to the top of its scope. It also allows you to use _redundant_ `var` declaration without penalty.
+
+```
+function foo() {
+    var age = 16;
+    var age = 26;
+    var age = 36;
+    console.log(age);
+}
+
+foo(); // 36
+```
