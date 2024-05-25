@@ -248,3 +248,60 @@ function foo() {
 
 foo(); // 36
 ```
+
+### Let Declaration
+
+`let` operates in nearly the same way as `var`, but with some important difference. _Most notable is that `let` is **blocked scope**, but `var` is **function scoped**._
+
+```
+if (true) {
+    var name = "Joshua";
+    console.log(name); // Joshua
+}
+
+console.log(name); // Joshua
+```
+
+_Block Scope_ is strictly a subset of function scope. So any scope limitation that apply to `var` declarations will also apply to `let` declarations.
+
+A `let` declaration also does not allow for any redundant declarations within a block scope. Doing so (allowing redundant declaration) will result to an error.
+
+```
+var name;
+var name;
+
+let age;
+let age; // SyntaxError: Identifier 'age' has already been declared.
+```
+
+**Nesting** using identical identifier behaves as you would expect with no errors because no re-declaration is occurring.
+
+```
+var name = "Nicholas";
+console.log(name); // Nicholas
+
+if(true) {
+    var name = "Matt";
+    console.log(name); // Matt
+}
+
+// using let keyword
+
+let age = 20;
+console.log(age); // 30
+
+if (true) {
+    let age = 26;
+    console.log(age); // 26
+}
+```
+
+**The different keywords (let, var) do not declare different types of variables - they just specify how the variables exist inside the relevant scope.**
+
+```
+var name;
+let name; // SyntaxError
+
+let age;
+var age; // SyntaxError
+```
