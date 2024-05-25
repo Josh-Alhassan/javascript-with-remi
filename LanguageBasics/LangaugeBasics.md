@@ -169,3 +169,44 @@ var message = 'hi';
 ```
 
 In this example, the variable `message` is first defined as having the string value "hi" and then over-written with the numeric value 100. Although it's not recommended to switch the data type that a variable contains, it is completely valid in ECMAScript.
+
+### Var Declaration Scope
+
+It's important to note that using the `var` operator to define a variable means _the variable defined_ is **local to the function scope** in which it was defined. For example, defining a variable inside a function using `var` means that the variable destroyed as soon as the function exits. _(variables defined cannot be accessed outside of the function scope)_. As shown here:
+
+```
+function test() {
+    var message = "hi"; // local variable
+}
+
+test()
+
+console.log(message); // error
+```
+
+Here, the `message` variable is defined within a function using `var`. The function is called `test()`, which creates the variable and assign its value. Immediately after that, the variable is destroyed so the last line in the example causes error. **It is, however, possible to define a variable globally by omitting the `var` operator as follows**
+
+```
+function test() {
+    message = 'hi'; // global variable
+}
+
+test()
+console.log(message); // hi - variable is not destroyed upon exit of the function
+```
+
+By removing the `var` operator from the example, the message _variable becomes global_. As soon as the function `test()` is called, the _variable_ is defined and becomes accessible outside of the function once it has been executed.
+
+**NOTE:** Although it is possible to define global variables by omitting the `var` operator, this approach is not recommended. Global variables declared locally are are hard to maintain and cause confusion. _Strict Mode_ throws `ReferenceError` when an undeclared variable is assigned a value ( message = "Hi").
+
+If you need to define more than one variable, you can do it using a single statement, separating each variable (and optional initialization) with a comma like this:
+
+```
+var message = "hi",
+    found = false,
+    age = 29;
+```
+
+Because ECMAScript is loosely typed, variable initializations using different data types maybe combined into a single statement.
+
+**NOTE:** _When you're running in Strict Mode, you cannot define variables named **eval** or **arguments**, doing so results to **syntax error** ._
