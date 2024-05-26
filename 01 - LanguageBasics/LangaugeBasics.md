@@ -305,3 +305,19 @@ let name; // SyntaxError
 let age;
 var age; // SyntaxError
 ```
+
+### Temporal Dead Zone
+
+Another important behavior of `let` distinguishing it from `var` is that `let` declaration cannot be used in a way that assumes hoisting.
+
+```
+// name is hoisted
+console.log(name); // undefined
+var name = 'Matt'
+
+// age is not hoisted
+console.log(age); // ReferenceError, age is not defined
+let age = 26;
+```
+
+When passing the code, JavaScript engine will still be aware of the `let` declarations that appear later in a block, but _those variables will be unable to be referenced in anyway before the actual declaration occur_. THE SEGMENT OF EXECUTION that occurs before declaration is referred to as the **Temporal Dead Zone**, and any attempted reference to these variables will throw a _ReferenceError_.
